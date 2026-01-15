@@ -30,7 +30,7 @@ export const useAuthentication = () => {
                 
         };
         
-        auth().catch(() => setIsAuthenticated(false));  //  catch any errors and set isAuthenticated to false
+        auth().catch(() => setIsAuthenticated(false));  //перехват любых ошибок и устанавка isAuthenticated в значение false
     }, [])
 
 
@@ -48,7 +48,7 @@ export const useAuthentication = () => {
                 setIsAuthenticated(false);
             }
         } catch (error) {
-            console.error('Error refreshing token:', error);
+            console.error('Ошибка обновления токена:', error);
             setIsAuthenticated(false);
         };
     }

@@ -38,20 +38,20 @@ class ConversationListCreateView(generics.ListCreateAPIView):
 
         if len(participants_data) != 2:
             return Response(
-                {'error': 'Для чата нужно 2 участника'},
+                {'error': 'Для чата нужно 2 участника!'},
                 status=status.HTTP_400_BAD_REQUEST
             )
         
         if str(request.user.id) not in map(str, participants_data):
             return Response(
-                {'error': 'Вы не являетесь участником чата'},
+                {'error': 'Вы не являетесь участником чата!'},
                 status=status.HTTP_403_FORBIDDEN
             )
         
         users = User.objects.filter(id__in=participants_data)
         if users.count() != 2:
             return Response(
-                {'error': 'Для чата нужно 2 участника'},
+                {'error': 'Для чата нужно 2 участника!'},
                 status=status.HTTP_400_BAD_REQUEST                
             )
         
@@ -63,14 +63,14 @@ class ConversationListCreateView(generics.ListCreateAPIView):
 
         if existing_conversation.exists():
             return Response(
-                {'error': 'Между этими участниками уже существует беседа'},
+                {'error': 'Между этими участниками уже существует беседа!'},
                 status=status.HTTP_400_BAD_REQUEST                  
             )
         
         conversation = Conversation.objects.create()
         conversation.participants.set(users)
 
-        #serialize the conversation
+        #сериализовать разговор
         serializer = self.get_serializer(conversation)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
@@ -90,8 +90,8 @@ class MessageListCreateView(generics.ListCreateAPIView):
         return MessageSerializer
     
     def perform_create(self, serializer):
-        #fetch conversation and validate user participation
-        print("Incoming conversation", self.request.data)
+        #получить беседу и проверить участие пользователя
+        print("Входящий разговор", self.request.data)
         conversation_id = self.kwargs['conversation_id']
         conversation = self.get_conversation(conversation_id)
 

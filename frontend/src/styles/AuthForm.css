@@ -13,7 +13,7 @@
     max-width: 400px;
     width: 100%;
     text-align: center;
-    background-color: #087544;
+    background-color: #00328d;
 }
 
 
@@ -23,11 +23,12 @@
 }
 
 .info-text {
-    margin-bottom: 20px;
-    color: #362a1d;
-    background-color: #dea5a5;
-    border: 5px solid transparent;
-    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #00328d;
+    border: none;
+    border-radius: 0;
 }
 
 .form-group {
@@ -85,7 +86,7 @@ input[type="checkbox"] {
 
 .form-button {
     padding: 10px 15px;
-    background-color: #087544;
+    background-color: #7094d5;
     border: none;
     border-radius: 4px;
     color: white;
@@ -97,7 +98,7 @@ input[type="checkbox"] {
 
 
 .form-button:hover {
-    background-color: #198d58;
+    background-color: #7094d587;
 }
 
 
@@ -151,12 +152,11 @@ input[type="checkbox"] {
 }
 
 .error-message {
-    color: red;
+    color: #ffcccc;
     text-align: center;
     margin: 5px;
 }
 
-/* Add these styles for password strength indicator */
 .password-strength {
     margin-top: 5px;
     font-size: 0.9rem;

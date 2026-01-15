@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api";
-import {jwtDecode} from "jwt-decode"; // Fix import
+import {jwtDecode} from "jwt-decode";
 import Conversation from "./Conversation";
 import "../styles/ChatList.css";
 import { ACCESS_TOKEN } from "../token";
@@ -28,7 +28,7 @@ const ChatList = () => {
         const conversationResponse = await api.get("conversations/");
         setConversations(conversationResponse.data);
       } catch (error) {
-        console.error("Error initializing data:", error);
+        console.error("Ошибка инициализации данных:", error);
       }
     };
 
@@ -47,7 +47,7 @@ const ChatList = () => {
         if (error.response?.data?.error) {
           setErrorMessage(error.response.data.error);
         } else {
-          setErrorMessage("An unexpected error occurred. Please try again.");
+          setErrorMessage("Произошла непредвиденная ошибка. Попробуйте ещё раз.");
         }
       }
     }
@@ -65,13 +65,13 @@ const ChatList = () => {
     <div className="chat-list-container">
       <div className={`chat-sidebar ${activeConversation ? "slide-out" : "slide-in"}`}>
         <header className="chat-header">
-          <h1>Welcome to ChitChat</h1>
-          <p>Connect with your friends instantly!</p>
+          <h1>Добро пожаловать в Чатик</h1>
+          <p>Мгновенно общайтесь с друзьями!</p>
         </header>
         <div className="user-selector">
           <select onChange={(e) => setSelectedUser(e.target.value)} value={selectedUser || ""}>
             <option value="" disabled>
-              Select a user to chat with
+              Выберите пользователя для чата
             </option>
             {users.map((user) => (
               <option key={user.id} value={user.id}>
@@ -79,11 +79,11 @@ const ChatList = () => {
               </option>
             ))}
           </select>
-          <button onClick={handleStartConversation}>Start Conversation</button>
+          <button onClick={handleStartConversation}>Начать разговор</button>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
         <div className="conversation-list">
-          <h2>Active Conversations</h2>
+          <h2>Актуальные чаты</h2>
           {conversations.map((conversation) => {
             {console.log("participants:", conversation.participants)}
             {console.log("currentUserId:", currentUserId, typeof currentUserId)}
@@ -112,7 +112,7 @@ const ChatList = () => {
             onBack={handleBackToChatList}
           />
         ) : (
-          <p className="no-conversation-message">Select a conversation to view.</p>
+          <p className="no-conversation-message">Выберите беседу для просмотра</p>
         )}
       </div>
     </div>

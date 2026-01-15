@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px;
-    background: linear-gradient(135deg, #087544, #1d71b8);
+    background: linear-gradient(135deg, #00328d, #1d71b8);
     color: #ffffff;
     font-size: 18px;
     font-weight: bold;
@@ -42,7 +42,7 @@
   
   .messages-container {
     flex: 1;
-    padding: 16px;
+    padding: 29px 16px 16px 16px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -54,7 +54,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
   
   .message-wrapper.sent {
@@ -73,7 +73,7 @@
   }
   
   .message-wrapper.sent .message-bubble {
-    background-color: #087544;
+    background-color: #00328d;
     color: #ffffff;
   }
   
@@ -126,12 +126,12 @@
   }
   
   .message-input:focus {
-    border-color: #087544;
+    border-color: #00328d;
     background: #ffffff;
   }
   
   .send-button {
-    background-color: #087544;
+    background-color: #00328d;
     color: #ffffff;
     border: none;
     border-radius: 20px;

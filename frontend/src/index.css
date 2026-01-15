@@ -2,8 +2,8 @@
 
 /* CSS Reset to remove browser-specific styles */
 
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 
 *,
 *::before,
@@ -14,7 +14,6 @@
   
 }
 
-/* Set default styles for the root element */
 html, body {
   font-size: 16px;
   line-height: 1.5;
@@ -32,13 +31,11 @@ html, body {
 }
 
 body {
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Montserrat", sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
-
 
 #root {
   display: flex;
@@ -55,14 +52,17 @@ p {
   margin: 0 0 1rem 0;
 }
 
-ul, ol {
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 130px;
+}
+/* ul, ol {
   margin: 0 0 1rem 0;
   padding-left: 1.25rem;
-}
+} */
 
-
-
-/* Utility classes */
 .flex {
   display: flex;
 }

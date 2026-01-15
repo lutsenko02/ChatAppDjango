@@ -16,7 +16,7 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
   useEffect(() => {
     const fetchConversationData = async () => {
       if (!conversationId) {
-        console.error("Invalid conversationId:", conversationId);
+        console.error("Неверный идентификатор беседы:", conversationId);
         return;
       }
 
@@ -33,11 +33,11 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
           if (chatPartner) {
             setChatPartner(chatPartner);
           } else {
-            console.error("No valid chat partner found");
+            console.error("Не найден подходящий партнер по чату");
           }
         }
       } catch (error) {
-        console.error("Error fetching conversation data:", error);
+        console.error("Ошибка при получении данных разговора:", error);
       } finally {
         setLoading(false);
       }
@@ -53,7 +53,7 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
     const websocket = new WebSocket(`ws://localhost:8000/ws/chat/${conversationId}/?token=${token}`);
 
     websocket.onopen = () => {
-      console.log("WebSocket connection established");
+      console.log("Установлено соединение WebSocket");
     };
 
     websocket.onmessage = (event) => {
@@ -68,17 +68,17 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
           ]);
           setTypingUser(null);
         } else if (data.type === "typing") {
-          console.log("Received typing event:", data);
+          console.log("Получено событие ввода:", data);
           const { user, receiver } = data;
 
           if (typingTimeoutRef.current) {
             clearTimeout(typingTimeoutRef.current);
           }
 
-          // Only show typing indicator if the current user is the receiver
+          // Показывать индикатор ввода только в том случае, если текущий пользователь является получателем.
           if (receiver === Number(currentUserId) && user.id !== Number(currentUserId)) {
             setTypingUser(user);
-            // Set new timeout and store the reference
+            // Установите новый тайм-аут и сохраните ссылку
             typingTimeoutRef.current = setTimeout(() => {
               setTypingUser(null);
               typingTimeoutRef.current = null;
@@ -99,7 +99,7 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
           }
         }
       } catch (error) {
-        console.error("Error parsing WebSocket message:", error);
+        console.error("Ошибка анализа сообщения WebSocket:", error);
       }
     };
 
@@ -119,7 +119,7 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
 
   const handleSendMessage = () => {
     if (!conversationId || !newMessage.trim()) {
-      console.error("Cannot send message: Invalid conversationId or empty message");
+      console.error("Невозможно отправить сообщение: неверный идентификатор беседы или пустое сообщение.");
       return;
     }
 
@@ -133,19 +133,19 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
       socket.send(JSON.stringify(messagePayload));
       setNewMessage("");
     } else {
-      console.error("WebSocket is not open. Message not sent.");
+      console.error("WebSocket не открыт. Сообщение не отправлено.");
     }
   };
 
   const handleTyping = () => {
     if (!chatPartner || socket?.readyState !== WebSocket.OPEN) {
-      console.error("Cannot send typing event: No chat partner or WebSocket is not open.");
+      console.error("Невозможно отправить событие ввода текста: нет партнера по чату или WebSocket не открыт.");
       return;
     }
 
-    const receiverId = chatPartner.id; // Use chatPartner.id as the receiverId
+    const receiverId = chatPartner.id; // Используйте chatPartner.id в качестве идентификатора получателя (receiverId)
 
-    console.log(`Sending typing event for receiverId: ${receiverId}`);
+    console.log(`Отправка события ввода для receiverId: ${receiverId}`);
 
     socket.send(
       JSON.stringify({
@@ -157,7 +157,7 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
         receiver: receiverId
       })
     );
-    console.log("Sending typing event:", {
+    console.log("Отправка события ввода:", {
       user: { id: currentUserId, username: "You" },
       receiver: receiverId
     });
@@ -193,7 +193,7 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
         }
       }
     } catch (error) {
-      console.error("Error deleting message:", error);
+      console.error("Ошибка удаления сообщения:", error);
     }
   };
   
@@ -201,8 +201,8 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
   return (
     <div className="conversation-container">
       <div className="conversation-header">
-        <button className="back-button" onClick={onBack}>Back</button>
-        <h3>{chatPartner ? `Chat with ${chatPartner.username}` : "Chat"}</h3>
+        <button className="back-button" onClick={onBack}>Назад</button>
+        <h3>{chatPartner ? `Чат с ${chatPartner.username}` : "Чат"}</h3>
         <div className="online-status">
           {onlineUsers.length > 0 ? (
             onlineUsers.map((user) => (
@@ -211,14 +211,14 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
               </span>
             ))
           ) : (
-            <span>No users online</span>
+            <span>Нет пользователей онлайн</span>
           )}
         </div>
       </div>
 
       <div className="messages-container">
         {loading ? (
-          <p>Loading messages...</p>
+          <p>Загрузка сообщений...</p>
         ) : (
           messages.map((message, index) => {
             const isSentByCurrentUser = message.sender?.id === Number(currentUserId);
@@ -250,7 +250,7 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
 
       {typingUser && (
         <div className="typing-indicator">
-          {typingUser.username} is typing...
+          {typingUser.username} печатает...
         </div>
       )}
 
@@ -263,11 +263,11 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
             debouncedHandleTyping();
           }}
           onKeyDown={handleTyping}
-          placeholder="Type a message..."
+          placeholder="Сообщение"
           className="message-input"
         />
         <button className="send-button" onClick={handleSendMessage}>
-          Send
+          отправить
         </button>
       </div>
     </div>

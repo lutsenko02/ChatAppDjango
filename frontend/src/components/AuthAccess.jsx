@@ -7,28 +7,28 @@ function ProtectedRoute({ children }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (isAuthenticated === null) return; // Wait for authentication check to complete
+        if (isAuthenticated === null) return; // Дождитесь завершения проверки подлинности
 
         if (!isAuthenticated) {
-            // Redirect to login if the user is not authenticated
+            // Перенаправление на страницу входа, если пользователь не аутентифицирован
             navigate('/login');
         } else if (isAuthenticated && (window.location.pathname === '/login' || window.location.pathname === '/register')) {
-            // Redirect to chats if the user is authenticated but on login/register page
+            // Перенаправление в чаты, если пользователь аутентифицирован, но находится на странице входа/регистрации
             navigate('/chats');
         }
     }, [isAuthenticated, navigate]);
 
     if (isAuthenticated === null) {
-        // Show loading indicator while authentication status is being checked
+        // Показывать индикатор загрузки во время проверки статуса аутентификации
         return <div>Loading...</div>;
     }
 
     if (!isAuthenticated) {
-        // Do not render children if user is unauthenticated
+        // Не отображать дочерние элементы, если пользователь не аутентифицирован
         return null;
     }
 
-    // Render children if authenticated
+    // Отображать детей, если аутентификация выполнена
     return children;
 }
 

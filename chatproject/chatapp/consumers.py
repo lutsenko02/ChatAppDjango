@@ -12,34 +12,34 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         query_string = self.scope['query_string'].decode('utf-8')
         params = parse_qs(query_string)
-        token = params.get('token', [None])[0] # token retrieved
+        token = params.get('token', [None])[0] # токен получен
 
         if token:
             try:
                 decoded_data = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
-                self.user = await self.get_user(decoded_data['user_id']) #get the user from the token
+                self.user = await self.get_user(decoded_data['user_id']) #получить пользователя из токена
                 self.scope['user'] = self.user
             except jwt.ExpiredSignatureError:
-                await self.close(code=4000) #close the connection if token is expired
+                await self.close(code=4000) #закрыть соединение, если токен истек
                 return
             except jwt.InvalidTokenError:
-                await self.close(code=4001) #close the connection if token is invalid
+                await self.close(code=4001) #закрыть соединение, если токен недействителен
                 return
         else:
-            await self.close(code=4002) #close the connection if no token is provided
+            await self.close(code=4002) #закрыть соединение, если токен не предоставлен
             return
 
         self.conversation_id = self.scope['url_route']['kwargs']['conversation_id']
         self.room_group_name = f'chat_{self.conversation_id}'
 
 
-        # Add channel to the  group
+        # Добавить канал в группу
         await self.channel_layer.group_add(
             self.room_group_name,
             self.channel_name
         )
 
-        # accept websocket connections
+        # принимать соединения через websocket
         await self.accept()
 
         user_data = await self.get_user_data(self.user)
@@ -54,7 +54,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     async def disconnect(self, close_code):
         if hasattr(self, 'room_group_name'):
-            # notify others about the disconnect
+            # уведомить других об отключении
             user_data = await self.get_user_data(self.scope["user"])
             await self.channel_layer.group_send(
                 self.room_group_name,
@@ -65,7 +65,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 }
             )
 
-            # Remove channel from the group
+            # Удалить канал из группы
             await self.channel_layer.group_discard(
                 self.room_group_name,
                 self.channel_name
@@ -86,9 +86,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 from .serializers import UserListSerializer
                 user_data = UserListSerializer(user).data
 
-                #say message to the group/database
+                #сказать сообщение группе/базе данных
                 message = await self.save_message(conversation, user, message_content)
-                #broadcast the message to the group
+                #транслировать сообщение группе
                 await self.channel_layer.group_send(
                     self.room_group_name,
                     {
@@ -99,7 +99,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     }
                 )
             except Exception as e:
-                print(f"Error saving message: {e}")
+                print(f"Ошибка сохранения сообщения: {e}")
         
         elif event_type == 'typing':
             try:
@@ -111,7 +111,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                         receiver_id = int(receiver_id)
 
                         if receiver_id != self.scope['user'].id:
-                            print(f"{user_data['username']} is typing for Receiver: {receiver_id}")
+                            print(f"{user_data['username']} печатает для Получателя: {receiver_id}")
                             await self.channel_layer.group_send(
                                 self.room_group_name,
                                 {
@@ -121,17 +121,17 @@ class ChatConsumer(AsyncWebsocketConsumer):
                                 }
                             )
                         else:
-                            print(f"User is typing for themselves")
+                            print(f"Пользователь печатает для себя")
                     else:
-                        print(f"Invalid receiver ID: {type(receiver_id)}")
+                        print(f"Неверный идентификатор получателя: {type(receiver_id)}")
                 else:
-                    print("No receiver ID provided")
+                    print("Не указан идентификатор получателя")
             except ValueError as e:
-                print(f"Error parsing receiver ID: {e}")
+                print(f"Ошибка анализа идентификатора приемника: {e}")
             except Exception as e:
-                print(f"Error getting user data: {e}")
+                print(f"Ошибка получения пользовательских данных: {e}")
 
-    # helper functions
+    # вспомогательные функции
     async def chat_message(self, event):
         message = event['message']
         user = event['user']
@@ -175,7 +175,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         try:
             return Conversation.objects.get(id=conversation_id)
         except Conversation.DoesNotExist:
-            print(F"Conversation with id {conversation_id} does not exist")
+            print(F"Разговор с идентификатором {conversation_id} не существует")
             return None
 
     @sync_to_async

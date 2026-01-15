@@ -8,7 +8,7 @@ const Navbar = () => {
   const { isAuthenticated, logout } = useAuthentication();
   const handleLogout = () => {
     logout();
-    setMenuOpen(false); // Close menu after logout
+    setMenuOpen(false); // Закрыть меню после выхода из системы
   };
 
   const toggleSidebar = () => {
@@ -18,13 +18,23 @@ const Navbar = () => {
 
 
   return (
+    
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to='/'  className="navbar-logo-text"><h2>ChitChat</h2></Link>
+        <Link to='/'  className="navbar-logo">
+          <img src="src/assets/logo-rsue.png" alt="логотип РИНХ" />
+        </Link>
 
-        <div className="navbar-icon" onClick={toggleSidebar}>
-          ☰
-        </div>
+        <ul className="navbar-menu">
+          <li>О нас</li>
+          <li>Направления</li>
+          <li>Контанкты</li>
+        </ul>
+
+        {/* <div className="navbar-icon" onClick={toggleSidebar}> */}
+          <div className="nabar-lk" onClick={toggleSidebar}>Личный кабинет</div>
+          {/* ☰ */}
+        {/* </div> */}
         {isSidebarOpen && (
           <div className="sidebar">
             <button className="close-btn" onClick={toggleSidebar}>
@@ -35,22 +45,22 @@ const Navbar = () => {
                 <>
                   <li>
                     <Link to="#" onClick={handleLogout} className="button-link">
-                      Logout
+                      Выход
                     </Link>
                   </li>
                   <li>
                     <Link to="/chats" className="button-link">
-                      Chats
+                      Чаты
                     </Link>
                   </li>
                 </>
               ) : (
                 <>
                   <li>
-                    <a href="/login">Login</a>
+                    <a href="/login">Войти</a>
                   </li>
                   <li>
-                    <a href="/register">Register</a>
+                    <a href="/register">Зарегистрироваться</a>
                   </li>
                 </>
               )}

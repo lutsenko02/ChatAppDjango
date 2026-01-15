@@ -13,10 +13,10 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await api.post('auth/register/', formData);
-      setMessage('Registration successful! You can now log in.');
+      setMessage('Регистрация прошла успешно! Теперь вы можете войти.');
     } catch (error) {
-      setMessage('Registration failed. Please try again.');
-      console.error('Registration error:', error.response ? error.response.data : error.message);
+      setMessage('Регистрация не удалась. Попробуйте ещё раз.');
+      console.error('Ошибка регистрации:', error.response ? error.response.data : error.message);
     }
   };
 
@@ -38,7 +38,7 @@ const Register = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        <button type="submit">Register</button>
+        <button type="submit">Зарегистрироваться</button>
       </form>
       <p>{message}</p>
     </div>

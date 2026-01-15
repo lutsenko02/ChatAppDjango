@@ -32,16 +32,16 @@ const AuthForm = ({ route, method }) => {
             console.error(error);
             if (error.response) {
                 if (error.response.status === 401) {
-                    setError("Invalid credentials");
+                    setError("Недействительные учетные данные");
                 } else if (error.response.status === 400) {
-                    setError("username already exists");
+                    setError("имя пользователя уже существует");
                 } else {
-                    setError("Something went wrong. Please try again.");
+                    setError("Что-то пошло не так. Попробуйте ещё раз.");
                 }
             } else if (error.request) {
-                setError("Network error. Please check your internet connection.");
+                setError("Ошибка сети. Проверьте подключение к интернету.");
             } else {
-                setError("Something went wrong. Please try again.");
+                setError("Что-то пошло не так. Попробуйте ещё раз.");
             }
         } finally {
             setLoading(false);
@@ -60,48 +60,48 @@ const AuthForm = ({ route, method }) => {
                 <div className="auth-form-wrapper">
                     <form onSubmit={handleSubmit} className="auth-form">
                         {method === 'register' && (
-                            <p className="info-text">⚠️</p>
+                            <p className="info-text">Регистрация</p>
                         )}
                         {error && <div className="error-message">{error}</div>}
                         {success && <div className="success-message">{success}</div>}
                         <div className="form-group">
-                            <label htmlFor="username">Username:</label>
+                            <label htmlFor="username">Имя пользователя:</label>
                             <input 
                                 type="username" 
                                 id="username" 
                                 value={username} 
                                 onChange={(e) => setUsername(e.target.value)}
-                                placeholder="Joshyvibe" 
+                                placeholder="Введите имя" 
                                 required 
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="password">Password:</label>
+                            <label htmlFor="password">Пароль:</label>
                             <input 
                                 type="password" 
                                 id="password" 
                                 value={password}  
-                                onChange={(e) => setPassword(e.target.value)} // Fix added here
-                                placeholder="Enter your password"
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="Введите пароль"
                                 required 
                             />
                         </div>
 
                         <button type="submit" className="form-button">
-                            {method === 'register' ? 'Register' : 'Login'}
+                            {method === 'register' ? 'Зарегистрироваться' : 'Авторизоваться'}
                         </button>
                         {method === 'login' && (
-                            <p className="toggle-text">Don't have an account? 
-                            <span className="toggle-link" onClick={() => navigate("/register")}> Register</span></p>
+                            <p className="toggle-text">У вас нет учетной записи?
+                            <span className="toggle-link" onClick={() => navigate("/register")}> Зарегистрироваться</span></p>
                         )}
                         {method === 'register' && (
-                            <p className="toggle-text">Already have an account? 
-                            <span className="toggle-link" onClick={() => navigate("/login")}> Login</span></p>
+                            <p className="toggle-text">У вас уже есть аккаунт?
+                            <span className="toggle-link" onClick={() => navigate("/login")}> Авторизоваться</span></p>
                         )}
                         {method === 'login' && (
                             <p className="toggle-text">
-                                Forgot your password? 
-                                <span className="toggle-link" onClick={() => navigate("/password-reset")}> Reset Password</span>
+                                Забыли пароль?
+                                <span className="toggle-link" onClick={() => navigate("/password-reset")}> Сбросить пароль</span>
                             </p>
                         )}
                     </form>

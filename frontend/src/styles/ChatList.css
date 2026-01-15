@@ -4,11 +4,10 @@
     overflow: auto;
     font-family: 'Arial', sans-serif;
   }
-  
-  /* Sidebar styling */
+ 
   .chat-sidebar {
     width: 300px;
-    background: linear-gradient(135deg, #087544, #2a70c9);
+    background: linear-gradient(135deg, #00328d, #2a70c9);
     color: white;
     display: flex;
     flex-direction: column;
@@ -42,8 +41,7 @@
     font-size: 14px;
     opacity: 0.8;
   }
-  
-  /* User selector dropdown */
+
   .user-selector {
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
@@ -57,11 +55,16 @@
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    color: #087544;
+    color: #00328d;
     background: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
+  .user-selector button {
+    background: #7094d5;
+    color: #ffffff;
+  }
+
   .user-selector button {
     cursor: pointer;
     font-weight: bold;
@@ -69,11 +72,10 @@
   }
   
   .user-selector button:hover {
-    background: #087a46;
+background: rgba(255, 255, 255, 0.1);
     color: white;
   }
-  
-  /* Conversations list */
+
   .conversation-list {
     flex: 1;
     overflow-y: auto;
@@ -99,8 +101,7 @@
     font-size: 16px;
     color: white;
   }
-  
-  /* Error message */
+
   .error-message {
     color: #ffcccc;
     font-size: 14px;
