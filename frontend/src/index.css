@@ -19,7 +19,8 @@ html, body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
@@ -35,17 +36,42 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  color: #00306B;
 }
 
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  background: linear-gradient(#FAF1CE, #B8CEDD, #80B0EA, #51A0FF);
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   margin: 0;
+}
+
+h1 {
+  font-size: 50px;
+  margin: 40px 0 40px 0;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 40px;
+  margin: 40px 0 40px 0;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 600;
 }
 
 p {
@@ -56,8 +82,8 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-top: 130px;
 }
+
 /* ul, ol {
   margin: 0 0 1rem 0;
   padding-left: 1.25rem;
@@ -74,4 +100,9 @@ p {
 .flex-center {
   justify-content: center;
   align-items: center;
+}
+
+.posrel {
+    position: relative;
+    width: 100%;
 }

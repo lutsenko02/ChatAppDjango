@@ -15,6 +15,7 @@
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, color 0.3s ease; */
     height: 83px;
+    z-index: 9;
   }
   
   .navbar-container {
@@ -60,7 +61,6 @@
 
   .poloska {
     position: absolute;
-    top: 450px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -68,6 +68,7 @@
 
   .poloska img {
     width: 95%;
+    max-width: 1600px;
   }
   
   .sidebar {
@@ -120,12 +121,16 @@
   }
 
   .navbar-menu {
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: normal;
     list-style: none;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 50px;
+  }
+
+  .navbar-menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: normal;
   }

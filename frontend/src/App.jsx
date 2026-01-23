@@ -5,6 +5,7 @@ import ChatList from './components/ChatList';
 import Login from './components/Login';
 import Conversation from './components/Conversation';
 import Navbar from './components/Navbar';
+import About from './components/About';
 import { useAuthentication } from './auth';
 import AuthPage from './pages/AuthPage';
 import Home from './pages/Home';

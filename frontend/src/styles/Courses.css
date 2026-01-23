@@ -1,0 +1,33 @@
+.courses-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.courses-menu {
+    display: flex;
+    gap: 83px;
+    align-items: center;
+}
+
+.courses-menu-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.courses-menu-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.poloska.third {
+    bottom: -125px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}

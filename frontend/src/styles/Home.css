@@ -2,40 +2,13 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(#FAF1CE, #B8CEDD, #80B0EA, #51A0FF);
   }
 
   .container {
     max-width: 1024px;
     margin: 0 auto;
   }
-  
-  .home-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-  }
-  
-  .home-header {
-    color: #00306B;
-  }
-  
-  .home-header h1 {
-    font-size: 50px;
-    margin: 40px 0 40px 0;
-    font-weight: 600;
-  }
-  
-  .home-header p {
-    font-size: 28px;
-    margin-top: 5px;
-  }
-  
-  
 
- 
-  
   /* @keyframes slideIn {
     from {
       transform: translateY(-100%);
@@ -44,7 +17,7 @@ body {
       transform: translateY(0);
     }
   } */
-  
+/*   
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -53,4 +26,4 @@ body {
       opacity: 1;
     }
   }
-  
+   */

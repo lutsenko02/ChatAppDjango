@@ -26,9 +26,21 @@ const Navbar = () => {
         </Link>
 
         <ul className="navbar-menu">
-          <li>О нас</li>
-          <li>Направления</li>
-          <li>Контанкты</li>
+          <li>        
+            <Link to='/#about'>
+              О нас
+            </Link>
+          </li>
+          <li>
+            <Link to='/#leads'>
+              Руководство
+            </Link>            
+          </li>
+          <li>
+            <Link to='/#courses'>
+              Направления
+            </Link>            
+          </li>
         </ul>
 
         {/* <div className="navbar-icon" onClick={toggleSidebar}> */}

@@ -1,0 +1,27 @@
+.home-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.home-header h1 {
+    font-size: 50px;
+    margin: 40px 0 40px 0;
+    font-weight: 600;
+}
+
+.home-header p {
+    font-size: 28px;
+    margin-top: 5px;
+}
+
+.home-header-wrapper {
+    margin-top: 130px;
+}
+
+.poloska.first {
+    top: 450px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
