@@ -1,0 +1,68 @@
+.footer-background {
+    margin-top: 70px;
+    background-color: #00306B;
+}
+
+.poloska.footer {
+    top: -50px;
+}
+
+.footer-container {
+    width: 100%;
+    height: 386px;
+    display: flex;
+    color: #FFFFFF;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.footer-container a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}
+
+.footer-container .footer-links a {
+    width: 51px;
+    height: 51px;
+    transition: transform 0.3s ease;
+}
+
+.footer-container .footer-links a img {
+    width: 100%;
+    height: 100%;
+}
+
+.footer-container .footer-links a:hover {
+    transform: scale(1.1);
+}
+
+.footer-links {
+    display: flex;
+    gap: 18px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    align-items: flex-end;
+}
+
+.footer-contact-name {
+    font-weight: 700;
+}
+
+.footer-contacts {
+    text-align: right;
+}

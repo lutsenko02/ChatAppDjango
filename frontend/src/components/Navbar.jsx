@@ -26,20 +26,14 @@ const Navbar = () => {
         </Link>
 
         <ul className="navbar-menu">
-          <li>        
-            <Link to='/#about'>
-              О нас
-            </Link>
+          <li>   
+            <a href='/#about'>О нас</a>     
           </li>
           <li>
-            <Link to='/#leads'>
-              Руководство
-            </Link>            
+            <a href='/#leads'>Руководство</a>          
           </li>
           <li>
-            <Link to='/#courses'>
-              Направления
-            </Link>            
+            <a href='/#courses'>Направления</a>        
           </li>
         </ul>
 

@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+    scroll-margin-top: 100px;
 }
 
 .courses-menu {
@@ -16,6 +17,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    z-index: 99;
 }
 
 .courses-menu-links a {
@@ -24,10 +26,17 @@
     font-size: 20px;
     font-weight: 800;
     font-size: 28px;
+    filter: brightness();
+}
+
+.courses-menu-links a:hover {
+    text-decoration: underline;
+    font-weight: 900;
+    filter: opacity(0.8);
 }
 
 .poloska.third {
-    bottom: -125px;
+    bottom: -140px;
     left: 50%;
     transform: translate(-50%, 0);
 }

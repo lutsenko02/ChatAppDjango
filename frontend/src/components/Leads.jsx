@@ -8,7 +8,7 @@ const Leads = () => {
     <div className="posrel">
         <div className="container">
             <div className="wrapper">
-                <div className="leads-container">
+                <div className="leads-container" id="leads">
                     <h2>Руководство</h2>
                     <div className="leads-main-container">
                         <div className="leads-main-left">
