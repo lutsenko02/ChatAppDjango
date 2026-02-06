@@ -6,6 +6,8 @@ import Leads from "../components/Leads";
 import Courses from "../components/Courses";
 import ActiveCourse from "../components/ActiveCourse";
 import Footer from "../components/Footer";
+import Form from "../components/Form";
+import Account from "../components/Account";
 
 const Home = () => {
 
@@ -16,6 +18,8 @@ const Home = () => {
       <Leads />
       <Courses />
       <ActiveCourse />
+      {/* <Account /> */}
+      <Form />
       <Footer />
     </div>
 

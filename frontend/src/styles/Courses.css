@@ -27,11 +27,14 @@
     font-weight: 800;
     font-size: 28px;
     filter: brightness();
+    transition: font-weight 0.3s ease;
+    /* border-bottom: 3px solid transparent; */
 }
 
 .courses-menu-links a:hover {
     text-decoration: underline;
     font-weight: 900;
+    /* transform: scale(1.1); */
     filter: opacity(0.8);
 }
 
