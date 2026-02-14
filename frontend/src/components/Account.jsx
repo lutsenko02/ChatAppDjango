@@ -1,13 +1,26 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 import '../styles/Account.css';
+import api from "../api";
 
 const Account = () => {
 
-    const courses = [
-        { id: 'patriot', title: '#Будь_патриотом', color: '#ffa5a5'},
-        { id: 'volonter', title: '#Будь_волонтером', color: '#6994dd'},
-        { id: 'studsovet', title: '#Будь_Встудсовете', color: '#a4ffb8'}
-    ];
+  const courses = [
+    { id: 'patriot', title: '#Будь_патриотом', color: '#ffa5a5'},
+    { id: 'volonter', title: '#Будь_волонтером', color: '#6994dd'},
+    { id: 'studsovet', title: '#Будь_Встудсовете', color: '#a4ffb8'}
+  ];
+  const [sections, setSections] = useState([]);
+
+  useEffect(() => {
+    const fetchSections = async () => {
+      const response = await api.get("account/section/");
+      setSections(response.data)
+      // console.log({sections})
+    };
+
+    fetchSections();
+  }, []);
 
   return (
     <div>
@@ -16,13 +29,13 @@ const Account = () => {
           <div className="account-container">
             <h1>Вы записаны на направления: </h1>
             <ul>
-                { courses.map(course => (
+                { sections.map(course => 
+                (
                     <li 
                         key={course.id}
-                        style={{ color: course.color }}
                         className="account"
                     >
-                        {course.title}
+                        {course.section}
                     </li>
                 ))}
             </ul>
@@ -33,9 +46,8 @@ const Account = () => {
           </div>
         </div>
       </div>
-      <div className="poloska first"><img src="/src/assets/poloska-header.svg" alt="" /></div>      
+      <Footer />
     </div>
-
   );
 };
 

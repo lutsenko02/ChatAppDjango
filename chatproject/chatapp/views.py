@@ -2,14 +2,15 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
 from .models import *
 from .serializers import *
 from rest_framework.permissions import AllowAny
 from rest_framework.exceptions import PermissionDenied
 
-# Create your views here.
+User = get_user_model()
+
 class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
@@ -23,8 +24,25 @@ class UserListView(generics.ListAPIView):
     serializer_class = UserListSerializer
     permission_classes = [IsAuthenticated]
 
-class ConversationListCreateView(generics.ListCreateAPIView):
+class UserSectionView(generics.ListAPIView):
+    serializer_class = UserSectionFormSerializer
+    permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        print(self.request.user.sections.all())
+        return self.request.user.sections.all()
+    
+class SelectFaculty(generics.ListAPIView):
+    queryset = Faculty.objects.all()
+    serializer_class = FacultySerializer
+    permission_classes = [AllowAny]
+
+class CreateSectionForm(generics.CreateAPIView):
+    queryset = SectionForm.objects.all()
+    serializer_class = SectionFormSerializer
+    permission_classes = [AllowAny]
+
+class ConversationListCreateView(generics.ListCreateAPIView):
     serializer_class = ConversationSerializer
     permission_classes = [IsAuthenticated]
 

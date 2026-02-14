@@ -61,8 +61,26 @@
     transition: filter 0.3s ease;
   }
 
+  .nabar-lk a {
+    text-decoration: none;
+    color: #00306B;
+  }
+
+  .nabar-lk.yellow {
+    background-color: #FFD983;
+  }
+
   .nabar-lk:hover {
     filter: brightness(1.1);
+  }
+
+  .nabar-lk-box {
+    display: flex;
+    gap: 15px;
+  }
+
+  .nabar-lk-box .nabar-lk {
+    width: 120px;
   }
 
   .poloska {
@@ -139,8 +157,11 @@
     color: #ffffff;
     font-size: 20px;
     font-weight: normal;
+    transition: border-bottom 0.3s ease;
+    border-bottom: 1px solid transparent;
   }
 
   .navbar-menu a:hover {
-    text-decoration: underline;
+    border-bottom: 1px solid #FFF;
+    width: 100%;
   }

@@ -3,10 +3,11 @@
 }
 
 .course-section {
-    margin-top: 60px;
+    margin-top: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    scroll-margin-top: 215px;
 }
 
 .course-section-container {
@@ -40,9 +41,10 @@
 }
 
 .course-open-form {
-    width: 274px;
+    width: fit-content;
     height: 56px;
-    margin-top: 20px;
+    padding: 0 25px;
+    margin-top: 50px;
     border-radius: 10px;
 
     display: flex;

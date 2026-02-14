@@ -34,7 +34,7 @@ const Leads = () => {
                                 <div className="leads-main-item-box">
                                     <img src="/src/assets/president.png" alt="president" />
                                     <div className="leads-main-descr">
-                                        <div className="leads-main-descr-name"><span>Ректор</span> - Макаренко Елена Николаевна</div>
+                                        <div className="leads-main-descr-name"><span>Президент</span> - Альбеков Адам Умарович</div>
                                         <div className="leads-main-descr-contacts">
                                             <div className="tg">
                                                 <img src="/src/assets/tg.svg" alt="tg" />
@@ -64,24 +64,24 @@ const Leads = () => {
                             <div className="name">Кислая Ирина Александровна</div>
                         </div>
                         <div className="item">
-                            <div className="descr">Проректор по учебной работе</div>
-                            <img src="/src/assets/prorector.png" alt="" />
-                            <div className="name">Кислая Ирина Александровна</div>
+                            <div className="descr">Проректор по научной работе и инновациям</div>
+                            <img src="/src/assets/prorector2.png" alt="" />
+                            <div className="name">Вовченко Наталья Геннадьевна</div>
                         </div>
                         <div className="item">
-                            <div className="descr">Проректор по учебной работе</div>
-                            <img src="/src/assets/prorector.png" alt="" />
-                            <div className="name">Кислая Ирина Александровна</div>
+                            <div className="descr">Проректор по развитию образовательных программ и цифровой трансформации</div>
+                            <img src="/src/assets/prorector3.png" alt="" />
+                            <div className="name">Радченко Юрий Владимирович</div>
                         </div>
                         <div className="item">
-                            <div className="descr">Проректор по учебной работе</div>
-                            <img src="/src/assets/prorector.png" alt="" />
-                            <div className="name">Кислая Ирина Александровна</div>
+                            <div className="descr">Проректор по административно -хозяйственной работе</div>
+                            <img src="/src/assets/prorector4.png" alt="" />
+                            <div className="name">Никитина Наталья Борисовна</div>
                         </div>
                         <div className="item">
-                            <div className="descr">Проректор по учебной работе</div>
-                            <img src="/src/assets/prorector.png" alt="" />
-                            <div className="name">Кислая Ирина Александровна</div>
+                            <div className="descr">Проректор по воспитательной работе и молодежной политике</div>
+                            <img src="/src/assets/prorector5.png" alt="" />
+                            <div className="name">Лященко Никита Иванович</div>
                         </div>
                     </div>
                 </div>

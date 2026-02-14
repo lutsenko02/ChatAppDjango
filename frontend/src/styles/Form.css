@@ -1,0 +1,111 @@
+  .classes-box {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+  }
+  .classes-box::before {
+    content: '';
+    width: 100vw;
+    height: 1200vh;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+.classes-box .container {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 35px;
+    overflow-y: auto;
+    position: fixed;
+    width: 100%;
+    max-width: 720px;
+    height: 80vh;
+    z-index: 999;
+    top: 0;
+    margin: 100px 0;
+    padding: 30px;
+    scrollbar-width: none;
+}
+
+.classes-box .container::-webkit-scrollbar {
+    display: none;
+}
+
+.classes-box .container h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.classes-box .classes-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.classes-box .policy-message, .classes-box .classes-form label{
+    color: #00306B;
+    font-weight: 500;
+}
+
+.classes-box .toggle-link:hover {
+    border-bottom: 2px solid #00306B;
+    width: 100%;
+}
+
+.classes-box .classes-form .policy {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.classes-box .classes-form .policy p {
+    margin: 0;
+}
+
+.classes-box .close-button {
+    position: absolute;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: #00306B;
+    cursor: pointer;
+    top: 20px;
+    left: 30px;
+    transition: all 0.3s ease;
+}
+
+.classes-box .close-button:hover {
+    transform: scale(1.3);
+}
+
+.classes-box .form-group input, .classes-box select, .classes-box .form-group textarea {
+    border: 2px solid #00306B;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+    max-width: 100%;
+    color: #00306B;
+}
+
+.classes-box .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.classes-box .form-group textarea{
+    max-width: 660px;
+    width: 100%;
+    resize:vertical
+}

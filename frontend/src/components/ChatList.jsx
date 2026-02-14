@@ -64,43 +64,46 @@ const ChatList = () => {
   return (
     <div className="chat-list-container">
       <div className={`chat-sidebar ${activeConversation ? "slide-out" : "slide-in"}`}>
-        <header className="chat-header">
-          <h1>Добро пожаловать в Чатик</h1>
-          <p>Мгновенно общайтесь с друзьями!</p>
-        </header>
-        <div className="user-selector">
-          <select onChange={(e) => setSelectedUser(e.target.value)} value={selectedUser || ""}>
-            <option value="" disabled>
-              Выберите пользователя для чата
-            </option>
-            {users.map((user) => (
-              <option key={user.id} value={user.id}>
-                {user.username}
-              </option>
-            ))}
-          </select>
-          <button onClick={handleStartConversation}>Начать разговор</button>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-        </div>
-        <div className="conversation-list">
-          <h2>Актуальные чаты</h2>
-          {conversations.map((conversation) => {
-            {console.log("participants:", conversation.participants)}
-            {console.log("currentUserId:", currentUserId, typeof currentUserId)}
-
-            return <div
-              key={conversation.id}
-              className="conversation-item"
-              onClick={() => handleSelectConversation(conversation)}
-            >
-              <p>
-                {conversation.participants
-                  .filter((user) => user.id !== Number(currentUserId))
-                  .map((user) => user.username)
-                  .join(", ")}
-              </p>
+          <header className="chat-header">
+            <h1>Выберите беседу для просмотра</h1>
+          <div className="container">
+            <div className="user-selector">
+              <select onChange={(e) => setSelectedUser(e.target.value)} value={selectedUser || ""}>
+                <option value="" disabled>
+                  Выберите пользователя для чата
+                </option>
+                {users.map((user) => (
+                  <option key={user.id} value={user.id}>
+                    {user.username}
+                  </option>
+                ))}
+              </select>
+              <button onClick={handleStartConversation}>Начать разговор</button>
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
             </div>
-          })}
+            </div>
+          </header>
+          <div className="container">
+          <div className="conversation-list">
+            <h2>Актуальные чаты</h2>
+            {conversations.map((conversation) => {
+              {console.log("participants:", conversation.participants)}
+              {console.log("currentUserId:", currentUserId, typeof currentUserId)}
+
+              return <div
+                key={conversation.id}
+                className="conversation-item"
+                onClick={() => handleSelectConversation(conversation)}
+              >
+                <p>
+                  {conversation.participants
+                    .filter((user) => user.id !== Number(currentUserId))
+                    .map((user) => user.username)
+                    .join(", ")}
+                </p>
+              </div>
+            })}
+          </div>
         </div>
       </div>
 
@@ -112,7 +115,9 @@ const ChatList = () => {
             onBack={handleBackToChatList}
           />
         ) : (
-          <p className="no-conversation-message">Выберите беседу для просмотра</p>
+          <div className="no-conversation-box">
+            <p className="no-conversation-message">Выберите беседу для просмотра</p>
+          </div>
         )}
       </div>
     </div>

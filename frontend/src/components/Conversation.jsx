@@ -172,7 +172,7 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
 
   const formatTimestamp = (timestamp) => {
     const date = new Date(timestamp);
-    return new Intl.DateTimeFormat("en-US", {
+    return new Intl.DateTimeFormat("ru-RU", {
       dateStyle: "short",
       timeStyle: "short",
     }).format(date);
@@ -181,6 +181,7 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
   const handleDeleteMessage = async (messageId) => {
     try {
       const response = await api.delete(`/conversations/${conversationId}/messages/${Number(messageId)}/`);
+
       if (response.status === 204) {
         setMessages((prevMessages) => prevMessages.filter((msg) => msg.id !== Number(messageId)));
 
@@ -200,8 +201,9 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
 
   return (
     <div className="conversation-container">
+      <div className="container">
       <div className="conversation-header">
-        <button className="back-button" onClick={onBack}>Назад</button>
+        <button className="back-button" onClick={onBack}>✖</button>
         <h3>{chatPartner ? `Чат с ${chatPartner.username}` : "Чат"}</h3>
         <div className="online-status">
           {onlineUsers.length > 0 ? (
@@ -237,7 +239,9 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
                       className="delete-button"
                       onClick={() => handleDeleteMessage(message.id)}
                     >
-                      Delete
+                    <svg width="15" height="18" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 0C7.35 0 6 1.35 6 3H3C1.35 3 0 4.35 0 6H21C21 4.35 19.65 3 18 3H15C15 1.35 13.65 0 12 0H9ZM3 9V23.43C3 23.76 3.24 24 3.57 24H17.46C17.79 24 18.03 23.76 18.03 23.43V9H15.03V19.5C15.03 20.34 14.37 21 13.53 21C12.69 21 12.03 20.34 12.03 19.5V9H9.03V19.5C9.03 20.34 8.37 21 7.53 21C6.69 21 6.03 20.34 6.03 19.5V9H3.03H3Z" fill="#F20000"/>
+                    </svg>
                     </button>
                   )}
                 </div>
@@ -269,6 +273,7 @@ const Conversation = ({ conversationId, currentUserId, onBack }) => {
         <button className="send-button" onClick={handleSendMessage}>
           отправить
         </button>
+      </div>
       </div>
     </div>
   );

@@ -16,11 +16,11 @@ const About = () => {
                             <h4>РФЭИ</h4>
                             <div className="history-first-grid">
                                 <div className="history-grid-row1">
-                                    <div className="item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </div>
+                                    <div className="item">В январе 1931 года секретариат краевого комитета ВКП(б) утвердил решение о реорганизации экономического факультета СевероКавказского государственного университета в Ростовский финансовоэкономический институт</div>
                                 </div>
                                 <div className="history-grid-row2">
-                                    <div className="item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </div>
-                                    <div className="item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </div>
+                                    <div className="item">Постановлением Совета Народных Комиссаров СССР от 28 февраля 1933 г. за №330 РФЭИ был включен в список высших учебных заведений страны.</div>
+                                    <div className="item">В РФЭИ не было факультетской системы. Институт осуществлял подготовку по двум специальностям: государственному бюджету и кредиту.</div>
                                 </div>
                             </div>
                         </div>
@@ -32,10 +32,10 @@ const About = () => {
                             <div className="history-second-grid">
                                 <div className="history-grid-row1">
                                     <img src="/src/assets/pencil.svg" alt="" />
-                                    <div className="item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </div>
+                                    <div className="item">13 октября 1964 г. приказом Министерства высшего и среднего специального образования РСФСР №718 РФЭИ был переименован в Ростовский институт народного хозяйства</div>
                                 </div>
                                 <div className="history-grid-row2">
-                                    <div className="item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </div>
+                                    <div className="item">В 1971 г. приказом Минвуза РИНХ переводился в институт первой категории. За заслуги в подготовке квалифицированных специалистов и развитии научных исследований Указом Президиума Верховного Совета СССР от 15 октября 1981 г. Ростовский-на-Дону институт народного хозяйства был награжден орденом "Знак Почета".</div>
                                 </div>
                             </div>
                         </div>
@@ -46,11 +46,11 @@ const About = () => {
                             <h4>РГЭА</h4>
                             <div className="history-third-grid">
                                 <div className="history-grid-row1">
-                                    <div className="item">ut labore et doloread minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </div>
-                                    <div className="item">elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </div>
+                                    <div className="item">В 1994 году РИНХ успешно прошел государственную аттестацию и был преобразован в Государственную экономическую академию (РГЭА).</div>
+                                    <div className="item">В академии началась подготовка специалистов на основе многоуровневой системы (бакалавр - магистр), получило развитие дистанционное обучение и экстернат.</div>
                                 </div>
                                 <div className="history-grid-row2">
-                                    <div className="item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </div>
+                                    <div className="item">Примечательной особенностью деятельности академии в 90-е годы стало создание и укрепление широкой сети филиалов в Ростовской области, в Краснодарском и Ставропольском краях</div>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ const About = () => {
                             <div className="history-fourth-grid">
                                 <div className="history-grid-row1">
                                     <img src="/src/assets/img-rsue.png" alt="" />
-                                    <div className="item">elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </div>
+                                    <div className="item fs-24">В 2000 году вуз прошел очередную государственную аттестацию, получил статус университета и наименование – Ростовский государственный экономический университет (РИНХ).</div>
                                 </div>
                             </div>
                         </div>

@@ -24,21 +24,34 @@ const Navbar = () => {
         <Link to='/'  className="navbar-logo">
           <img src="src/assets/logo-rsue.png" alt="логотип РИНХ" />
         </Link>
-
-        <ul className="navbar-menu">
-          <li>   
-            <a href='/#about'>О нас</a>     
-          </li>
-          <li>
-            <a href='/#leads'>Руководство</a>          
-          </li>
-          <li>
-            <a href='/#courses'>Направления</a>        
-          </li>
-        </ul>
-
         {/* <div className="navbar-icon" onClick={toggleSidebar}> */}
+          {isAuthenticated ? (<>
+          <div className="nabar-lk-box">
+            <div className="nabar-lk yellow">
+              <Link to="/chats" className="button-link">
+                Чат
+              </Link>
+            </div>
+            <div className="nabar-lk">
+              <Link to="/" onClick={handleLogout} className="button-link">
+                Выйти
+              </Link>
+            </div>
+          </div>
+          </>) : (<>
+          <ul className="navbar-menu">
+            <li>   
+              <a href='/#about'>О нас</a>     
+            </li>
+            <li>
+              <a href='/#leads'>Руководство</a>          
+            </li>
+            <li>
+              <a href='/#courses'>Направления</a>        
+            </li>
+          </ul>
           <div className="nabar-lk" onClick={toggleSidebar}>Личный кабинет</div>
+          </>)}
           {/* ☰ */}
         {/* </div> */}
         {isSidebarOpen && (
@@ -49,7 +62,7 @@ const Navbar = () => {
             <ul className="sidebar-menu">
               {isAuthenticated ? (
                 <>
-                  <li>
+                  {/* <li>
                     <Link to="#" onClick={handleLogout} className="button-link">
                       Выход
                     </Link>
@@ -58,7 +71,7 @@ const Navbar = () => {
                     <Link to="/chats" className="button-link">
                       Чаты
                     </Link>
-                  </li>
+                  </li> */}
                 </>
               ) : (
                 <>

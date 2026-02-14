@@ -1,48 +1,55 @@
 import { useState } from 'react';
 import api from '../api';
 
-const Register = () => {
-  const [formData, setFormData] = useState({ username: '', password: '' });
-  const [message, setMessage] = useState('');
+// const Register = () => {
+  // const [formData, setFormData] = useState({ username: '', password: '' });
+  // const [message, setMessage] = useState('');
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await api.post('auth/register/', formData);
-      setMessage('Регистрация прошла успешно! Теперь вы можете войти.');
-    } catch (error) {
-      setMessage('Регистрация не удалась. Попробуйте ещё раз.');
-      console.error('Ошибка регистрации:', error.response ? error.response.data : error.message);
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await api.post('auth/register/', formData);
+  //     setMessage('Регистрация прошла успешно! Теперь вы можете войти.');
+  //   } catch (error) {
+  //     setMessage('Регистрация не удалась. Попробуйте ещё раз.');
+  //     console.error('Ошибка регистрации:', error.response ? error.response.data : error.message);
+  //   }
+  // };
 
-  return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        <button type="submit">Зарегистрироваться</button>
-      </form>
-      <p>{message}</p>
-    </div>
-  );
-};
+  // return (
+  //   <div>
+  //     <h2>Register</h2>
+  //     <form onSubmit={handleSubmit}>
+  //       <input
+  //         type="text"
+  //         name="username"
+  //         placeholder="Username"
+  //         value={formData.username}
+  //         onChange={handleChange}
+  //       />
+  //       <input
+  //         type="email"
+  //         name="email"
+  //         placeholder="email"
+  //         value={formData.email}
+  //         onChange={handleChange}
+  //       />
+  //       <input
+  //         type="password"
+  //         name="password"
+  //         placeholder="Password"
+  //         value={formData.password}
+  //         onChange={handleChange}
+  //       />
+  //       <button type="submit">Зарегистрироваться</button>
+  //     </form>
+  //     <p>{message}</p>
+  //   </div>
+  // );
+// };
 
-export default Register;
+// export default Register;

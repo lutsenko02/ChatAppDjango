@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import "../styles/ActiveCourse.css";
+import Form from "../components/Form";
 
 const ActiveCourse = () => {
+  // const [isOpen, setIsOpen] = useState(false);
+
   // 1. Состояние для хранения данных о разделах курса
   const [courseSections, setCourseSections] = useState([]);
   
@@ -18,7 +21,7 @@ const ActiveCourse = () => {
       { id: 'patriot', 
         title: '#Будь_патриотом', 
         color: '#ffa5a5', 
-        button_name: 'Стать волонтером!' 
+        button_name: 'Присоединиться!' 
       },
       { id: 'volonter', 
         title: '#Будь_волонтером', 
@@ -28,37 +31,37 @@ const ActiveCourse = () => {
       { id: 'studsovet', 
         title: '#Будь_Встудсовете', 
         color: '#a4ffb8', 
-        button_name: 'Стать волонтером!' 
+        button_name: 'Войти в студсовет!' 
       },
       { id: 'creative', 
         title: '#Будь_творческим', 
         color: '#FFD6A5', 
-        button_name: 'Стать волонтером!' 
+        button_name: 'Проявить себя!' 
       },
       { id: 'sport', 
         title: '#Будь_спортивным', 
         color: '#CAFFBF', 
-        button_name: 'Стать волонтером!' 
+        button_name: 'Вступить в команду!' 
       },
       { id: 'studotr', 
         title: '#Будь_Встудотрядах', 
         color: '#9BF6FF', 
-        button_name: 'Стать волонтером!' 
+        button_name: 'Присоединиться к отряду!' 
       },
       { id: 'profsouz', 
         title: '#Будь_Впрофсоюзе', 
         color: '#FFC6FF', 
-        button_name: 'Стать волонтером!' 
+        button_name: 'Вступить в профсоюз!' 
       }, 
       { id: 'iniciative', 
         title: '#Будь_инициативным', 
         color: '#FFFFD8', 
-        button_name: 'Стать волонтером!' 
+        button_name: 'Предложить идею!' 
       },
       { id: 'media', 
         title: '#Будь_Вмедиа', 
         color: '#ebcaff', 
-        button_name: 'Стать волонтером!' 
+        button_name: 'Выйти в эфир!' 
       },
     ];
   };
@@ -127,6 +130,9 @@ const ActiveCourse = () => {
             </section>
           ))
         )}
+          <Form
+            // onClose={handleBackToChatList}
+          />
       </div>
     </div>
   );

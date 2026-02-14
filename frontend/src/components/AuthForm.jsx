@@ -8,9 +8,12 @@ import "../styles/AuthForm.css";
 const AuthForm = ({ route, method }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
+    const [isChecked, setIsChecked] = useState(false);
+    const [errorChecked, setErrorChecked] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -19,13 +22,24 @@ const AuthForm = ({ route, method }) => {
         setError(null);
         setSuccess(null);
 
+        if (!isChecked && method == "register") {
+            setLoading(false);
+            setErrorChecked('Вы должны принять условия!');
+            return;
+        }
+
         try {
-            const res = await api.post(route, { username, password });
+            const res = await api.post(route, { username, password, email});
 
             if (method === 'login') {
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
                 localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-                navigate("/chats");
+                navigate("/account");
+                window.location.reload();
+            }
+
+            if (method === 'register') {
+                navigate("/login");
                 window.location.reload();
             }
         } catch (error) {
@@ -75,6 +89,19 @@ const AuthForm = ({ route, method }) => {
                                 required 
                             />
                         </div>
+                        {method === 'register' && (
+                            <div className="form-group">
+                            <label htmlFor="email">Почта:</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="email@example.com" 
+                                required 
+                            />
+                        </div>
+                        )}
                         <div className="form-group">
                             <label htmlFor="password">Пароль:</label>
                             <input 
@@ -86,7 +113,6 @@ const AuthForm = ({ route, method }) => {
                                 required 
                             />
                         </div>
-
                         <button type="submit" className="form-button">
                             {method === 'register' ? 'Зарегистрироваться' : 'Авторизоваться'}
                         </button>
@@ -94,15 +120,23 @@ const AuthForm = ({ route, method }) => {
                             <p className="toggle-text">У вас нет учетной записи?
                             <span className="toggle-link" onClick={() => navigate("/register")}> Зарегистрироваться</span></p>
                         )}
+
                         {method === 'register' && (
+                            <>
+                            <div className="policy">
+                                <input 
+                                    type="checkbox" 
+                                    checked={isChecked}
+                                    onChange={(e) => setIsChecked(e.target.checked)}
+                                />
+                                <div className="policy-message">
+                                    <p>Согласен(а) с <span className="toggle-link" onClick={() => navigate("/privacy-policy")}>Политикой обработки персональных данных.</ span></p>
+                                    {errorChecked && <p style={{ color: 'red', fontWeight: "500" }}>{errorChecked}</p>}
+                                </div>
+                            </div>
                             <p className="toggle-text">У вас уже есть аккаунт?
                             <span className="toggle-link" onClick={() => navigate("/login")}> Авторизоваться</span></p>
-                        )}
-                        {method === 'login' && (
-                            <p className="toggle-text">
-                                Забыли пароль?
-                                <span className="toggle-link" onClick={() => navigate("/password-reset")}> Сбросить пароль</span>
-                            </p>
+                            </>
                         )}
                     </form>
                 </div>

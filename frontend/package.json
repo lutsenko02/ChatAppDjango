@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@maskito/core": "^5.1.0",
+    "@maskito/phone": "^5.1.0",
+    "@maskito/react": "^5.1.0",
     "axios": "^1.11.0",
     "jwt-decode": "^4.0.0",
     "react": "^19.1.1",

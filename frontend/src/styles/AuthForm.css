@@ -2,20 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    height: 100vh;
 }
 
 .auth-form-wrapper {
-    margin: 15px;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    padding: 30px 35px;
+    border-radius: 35px;
+    max-width: 450px;
     width: 100%;
     text-align: center;
     background-color: #00328d;
 }
-
 
 .auth-form h2 {
     margin-bottom: 20px;
@@ -23,12 +20,25 @@
 }
 
 .info-text {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: #ffffff;
-    font-size: 30px;
+    font-size: 26px;
+    font-weight: 600;
     background-color: #00328d;
     border: none;
     border-radius: 0;
+}
+
+.auth-form .policy {
+    margin-top: 20px;
+    color: #ffffff;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.auth-form .policy p {
+    margin: 0;
 }
 
 .form-group {
@@ -55,21 +65,26 @@
 .form-group label {
     margin: 5px;
     color: #fff;
-    font-size: 14px; 
-    line-height: 1.5; 
-    display: inline-block; 
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    display: inline-block;
 }
 
 .form-group input {
-    padding: 10px;
-    
     border: 1px solid hsl(208, 63%, 18%);
-    border-radius: 4px;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px 15px;
     box-sizing: border-box;
     outline: none;
-    width: 100%; 
+    width: 100%;
     max-width: 100%;
-    resize: none; 
+    resize: none;
+}
+
+.form-group input::placeholder {
+    opacity: 0.5;
 }
 
 input[type="checkbox"] {
@@ -85,25 +100,22 @@ input[type="checkbox"] {
 }
 
 .form-button {
-    padding: 10px 15px;
-    background-color: #7094d5;
+    padding: 15px 15px;
+    background: #BCD0E9;
+    color: #00306B;
     border: none;
-    border-radius: 4px;
-    color: white;
-    font-weight: bold;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 20px;
+    font-weight: 600;   
+    transition: filter 0.3s ease;
     width: 100%;
+    font-family: "Montserrat", sans-serif;
 }
-
 
 .form-button:hover {
-    background-color: #7094d587;
+    filter: brightness(1.1);
 }
-
-
-
-
 
 .toggle-text {
     text-align: center;
@@ -112,9 +124,15 @@ input[type="checkbox"] {
 }
 
 .toggle-link {
-
     cursor: pointer;
     font-weight: bold;
+    transition: border-bottom 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.toggle-link:hover {
+    border-bottom: 1px solid #FFF;
+    width: 100%;
 }
 
 

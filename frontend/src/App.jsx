@@ -1,23 +1,24 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-import Register from './components/Register';
+// import Register from './components/Register';
 import ChatList from './components/ChatList';
-import Login from './components/Login';
+// import Login from './components/Login';
 import Conversation from './components/Conversation';
 import Navbar from './components/Navbar';
-import About from './components/About';
 import { useAuthentication } from './auth';
 import AuthPage from './pages/AuthPage';
 import Home from './pages/Home';
 import ProtectedRoute from './components/AuthAccess';
+import Account from './components/Account';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 const App = () => {
   const {isAuthenticated} = useAuthentication()
   const ProtectedLogin = () => {
-    return isAuthenticated ? <Navigate to='/chats' /> : <AuthPage initialMethod='login' />
+    return isAuthenticated ? <Navigate to='/account' /> : <AuthPage initialMethod='login' />
   }
   const ProtectedRegister = () => {
-    return isAuthenticated ? <Navigate to='/chats' /> : <AuthPage initialMethod='register' />
+    return isAuthenticated ? <Navigate to='/account' /> : <AuthPage initialMethod='register' />
   }
   return (
     <Router>
@@ -26,11 +27,17 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<ProtectedLogin />}/>
         <Route path="/register" element={<ProtectedRegister />}/>
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/account" element={
+          <ProtectedRoute>
+            <Account />
+          </ProtectedRoute>
+          }/>
         <Route path="/chats" element={
-        <ProtectedRoute>
+          <ProtectedRoute>
             <ChatList />
-        </ProtectedRoute>
-        } />
+            </ProtectedRoute>
+          } />
         <Route path="/chat/:conversationId" element={<Conversation />} />
       </Routes>
     </Router>

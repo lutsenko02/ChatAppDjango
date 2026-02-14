@@ -14,7 +14,7 @@ function ProtectedRoute({ children }) {
             navigate('/login');
         } else if (isAuthenticated && (window.location.pathname === '/login' || window.location.pathname === '/register')) {
             // Перенаправление в чаты, если пользователь аутентифицирован, но находится на странице входа/регистрации
-            navigate('/chats');
+            navigate('/account');
         }
     }, [isAuthenticated, navigate]);
 

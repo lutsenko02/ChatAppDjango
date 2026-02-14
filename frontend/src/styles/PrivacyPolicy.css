@@ -1,0 +1,19 @@
+.privacy-policy {
+    margin-top: 150px;
+}
+
+.policy-container h4 {
+    margin-bottom: 20px;
+}
+
+.policy-container p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.container.privacy-policy {
+    background-color: #fbfbfb69;
+    padding: 1px 50px 50px 50px;
+    margin-bottom: 50px;
+    border-radius: 35px;
+}

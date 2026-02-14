@@ -88,6 +88,7 @@
 .leads-helpers-container .item .descr {
     font-size: 14px;
     max-width: 183px;
+    line-height: 16px;
 }
 
 .leads-helpers-container .item img {
@@ -100,6 +101,7 @@
     font-size: 14px;
     font-weight: 600;
     max-width: 163px;
+    line-height: 17px;
 }
 
 
